@@ -1,0 +1,104 @@
+body
+{
+	
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+	
+	justify-content: center;
+	align-items: center;
+	font-family: consolas;
+}
+.imgcontainer
+{
+	position: relative;
+	width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.imgcontainer .imgbox
+{
+	position: relative;
+	width: 280px;
+	height: 400px;
+	margin: 20px 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.imgcontainer .imgbox .imgBx
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	clip-path: circle(400px at center 100px);
+	transition: 0.5s;
+	transition-delay: 0.5s;
+}
+.imgcontainer .imgbox:hover .imgBx
+{
+	clip-path: circle(80px at center 100px);
+	transition-delay: 0s;
+}
+.imgcontainer .imgbox .imgBx img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.imgcontainer .imgbox .imgcontent
+{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 55%;
+	padding: 20px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.imgcontainer .imgbox .imgcontent h2
+{
+	margin: 0;
+	padding: 0;
+}
+.imgcontainer .imgbox .imgcontent a
+{
+	text-decoration: none;
+	background: #000;
+	color: #fff;
+	padding: 5px;
+	display: inline-block;
+}
+.imgcontainer .imgbox .imgcontent h2,
+.imgcontainer .imgbox .imgcontent p,
+.imgcontainer .imgbox .imgcontent a
+{
+	opacity: 0;
+	transition: 0.5s;
+	transform: translateY(20px);
+}
+.imgcontainer .imgbox:hover .imgcontent h2
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.5s
+}
+.imgcontainer .imgbox:hover .imgcontent p
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.7s
+}
+.imgcontainer .imgbox:hover .imgcontent a
+{
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.9s
+}
