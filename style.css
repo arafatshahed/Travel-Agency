@@ -526,3 +526,43 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.mcardc {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.mcardr {
+  margin: 0 -5px;
+}
+
+/* Clear floats after the columns */
+.mcardr:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .mcardc {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.cards {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-image: url(images/company.jpg);
+  background-position: bottom;
+  background-size: cover;
+}
+.cards h3 {
+  color: #24252a;
+}

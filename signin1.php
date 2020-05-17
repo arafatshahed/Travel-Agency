@@ -22,8 +22,8 @@
       <form class="" action="signin.php" method="post">
         <h1>Sign In</h1>
         <input
-          type="text"
-          placeholder="Username"
+          type="Email"
+          placeholder="Email Address"
           name="username"
           class="txtb"
         />

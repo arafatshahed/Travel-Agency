@@ -29,8 +29,13 @@ $img1;
 $img2;
 $img3;
 $r;
+$rr;
+$coname;
+$rrcheck;
 $sql2;
-$sql = "select Pa_Start, Pa_Destination, Pa_Price_Adult, Pa_Price_Child,T_Type
+$sql3;
+$Com_ID;
+$sql = "select Pa_Start, Pa_Destination, Co_ID, Pa_Price_Adult, Pa_Price_Child,T_Type
  	from package p, transport t
  	where Pa_ID = $paID and p.T_ID = t.T_ID;";
  	$result = mysqli_query($conn,$sql);
@@ -42,7 +47,8 @@ $sql = "select Pa_Start, Pa_Destination, Pa_Price_Adult, Pa_Price_Child,T_Type
                     $P_Destination = $row['Pa_Destination'];
                     $P_Price_Adult = $row['Pa_Price_Adult'];
                     $P_Price_Child = $row['Pa_Price_Child'];
-                    $Tr_Type = $row['T_Type'];
+					$Tr_Type = $row['T_Type'];
+					$Com_ID = $row['Co_ID'];
                 }
             }
             if ($conn->query($sql))
@@ -68,6 +74,15 @@ $sql = "select Pa_Start, Pa_Destination, Pa_Price_Adult, Pa_Price_Child,T_Type
                     $img3 = $row2['Pa_img3'];
                 }
 			}
+			$sql3 = "select Co_Name from company where Co_ID = $Com_ID;";
+			$rr =  mysqli_query($conn,$sql3);
+			$rrcheck = mysqli_num_rows($rr);
+			if($rcheck>0)
+                {
+                	while ($row3 = mysqli_fetch_assoc($rr)) {
+                    $coname = $row3['Co_Name'];
+                }
+			}
 			$conn->close();
 
 			
@@ -91,6 +106,8 @@ The Destination location is     <b><?php  echo $P_Destination;?></b>.<br>
 Price per adult is     <b><?php echo $P_Price_Adult;?></b> taka.<br>
 Price per child is     <b><?php echo $P_Price_Child;?></b> taka.<br>
 The transport of choice is     <b><?php  echo $Tr_Type;?></b>.<br>
+The Company  is     <b><?php  echo $coname;?></b>.<br>
+
 </div>
 <?php
 if(isset($_SESSION['userID']))

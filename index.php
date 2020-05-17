@@ -48,10 +48,6 @@ $conn       = new mysqli($host, $dbusername, $dbpassword, $dbname);
     <footer class="two">
         <div class="container">
             <div class="lorem"> <h1>ALL PACKAGE</h1><br>
-                
-                    <ul>
-                        <li><a href="package.php">All package info</a></li>
-                    </ul>
                     <br><p>The below packages are avilable currently.<p>
                     
             </div>
@@ -62,11 +58,13 @@ $conn       = new mysqli($host, $dbusername, $dbpassword, $dbname);
         require "dbh.php";
         $i = 1;
         
-            $sql = "select Pa_Img, Pa_Start, Pa_Destination from package;";
+            $sql = "select Pa_Img, Pa_Start, Pa_Destination, Pa_Visibility from package;";
             $result = mysqli_query($conn, $sql);
             $resultcheck = mysqli_num_rows($result);
             while ($row = mysqli_fetch_assoc($result))
             {
+                if($row['Pa_Visibility'])
+                {
                 ?><div class="column">
                     <img src="<?php echo $row['Pa_Img'];?>" alt="Snow" style="width:97%; height:97%">
                     <p class="detail"><?php echo $row['Pa_Start'] . " to " . $row['Pa_Destination'];?></p>
@@ -76,6 +74,7 @@ $conn       = new mysqli($host, $dbusername, $dbpassword, $dbname);
                 </div>
                 
                 <?php
+                }
                 $i++;
             }
                           
@@ -83,8 +82,31 @@ $conn       = new mysqli($host, $dbusername, $dbpassword, $dbname);
         ?>
         </div>
         </div>
-        
+        <div class="container">
+            <div class="mcardr">
+                <div class="mcardc">
+                    <div class="cards">
+                    <br>
+                        <h2>For Companies</h2>
+                        <br>
+                        <?php
+                        if(!isset($_SESSION['compID']))
+                        {
+                            echo '<a href="cosignup.php"><p>Register</p></a>';
+                            echo '<br>';
+                            echo '<a href="cosignin.php"><p>Sign In</p></a>';
+                            echo '<br>';
+                        }
+                        else
+                        {
+                            echo '<a href="addpackage.php"><p>Add Package</p></a>';
+                            echo '<a href="logout.php"><p>Sign Out</p></a>';
+                        }
+                        ?>
 
+                </div>
+            </div>
+            </div>
         <div class="container">
             <?php
         require "contractf.php";
@@ -93,6 +115,22 @@ $conn       = new mysqli($host, $dbusername, $dbpassword, $dbname);
             <h2> Travel Agency, copyright &copy; 2020 </h2>
             <br>
         </div>
+
+        <?php
+        if(!isset($_SESSION['admin']))
+        {
+            echo '<a href="admin/adminsignin.php" target="_blank" >Admin Login</a><br><br><br>';
+        }
+        else
+        {
+            echo '<a href="package.php"><p>Manage Package</p></a>';
+            echo '<br>';
+            echo '<a href="logout.php"><p>Sign Out</p></a>';
+        }
+        ?>
+
+         
+
     </footer>
 </body>
 </html>

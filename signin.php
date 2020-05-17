@@ -6,7 +6,7 @@ if(!empty($username))
     if(!empty($password))
     {
         require "dbh.php";
-            $sql = "select C_Name, C_Pass,C_ID from customer;";
+            $sql = "select C_Name, Email, C_Pass,C_ID from customer;";
             $result = mysqli_query($conn,$sql);
             $resultcheck = mysqli_num_rows($result);
             if($resultcheck>0)
@@ -14,10 +14,10 @@ if(!empty($username))
                 while ($row = mysqli_fetch_assoc($result)) {
 
                     $pswCheck = password_verify($password, $row['C_Pass']);
-                    if($row['C_Name']==$username && $row['C_Pass']==$pswCheck)
+                    if($row['Email']==$username && $row['C_Pass']==$pswCheck)
                          {
                             session_start();
-                            $_SESSION['user'] = $username;
+                            $_SESSION['user'] = $row['C_Name'];
                             $_SESSION['userID'] = $row['C_ID'];
 
                             echo "Log in succesful. Redirecting to Home page";
