@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-
+<head>
+</head>
 <body>
 <?php
 session_start();
@@ -60,6 +61,6 @@ $sql = "select Pa_ID, Pa_Name, Pa_Visibility ,Pa_Start,Pa_Destination,Pa_Price_A
     </tbody>
     </table>
 <br>
-<a href="index.php">Get back to Homepage</a>
+<div><a href="index.php"><button>Get back to Homepage</button></a></div>
 </body>
 </html>
