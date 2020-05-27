@@ -81,7 +81,11 @@ $sql = "select Pa_Start, Pa_Destination,Co_ID, Pa_Price_Adult, Pa_Price_Child,T_
 ?>
 
 
-
+<style>
+    .product-pic{
+        background-image: url(<?php echo $img1;?>);
+    }
+</style>
 
 
     <div class="product-card">

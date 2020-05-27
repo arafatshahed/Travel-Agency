@@ -8,17 +8,21 @@ $pa_price_adult = filter_input(INPUT_POST, 'pa_price_adult');
 $pa_price_child = filter_input(INPUT_POST, 'pa_price_child');
 $transport_id = filter_input(INPUT_POST, 'transport_id');
 if (isset($_POST['upload'])) {
-  
     $image = $_FILES['image']['name'];
-    $imgf = 'images/';
-    $img1 = $imgf . $image;
+    $rand1 = substr(md5(time()),0,5);
+    $imgf1 = 'images/'.$rand1;
+    $img1 = $imgf1 . $image;
     $image2 = $_FILES['image2']['name'];
-    $img2 = $imgf . $image2;
+    $rand2 = substr(md5(time()),0,5);
+    $imgf2 = 'images/'.$rand2;
+    $img2 = $imgf2 . $image2;
     $image3 = $_FILES['image3']['name'];
-    $img3 = $imgf . $image3;
-    $target = "images/".basename($image);
-    $target2 = "images/".basename($image2);
-    $target3 = "images/".basename($image3);
+    $rand3 = substr(md5(time()),0,5);
+    $imgf3 = 'images/'.$rand3;
+    $img3 = $imgf3 . $image3;
+    $target = "images/".basename($rand1 . $image);
+    $target2 = "images/".basename($rand2 . $image2);
+    $target3 = "images/".basename($rand3 . $image3);
     
   }
   $pa_name = $pa_start .'2'. $pa_destination;
@@ -36,4 +40,7 @@ if (isset($_POST['upload'])) {
   move_uploaded_file($_FILES['image']['tmp_name'], $target);
   move_uploaded_file($_FILES['image2']['tmp_name'], $target2);
   move_uploaded_file($_FILES['image3']['tmp_name'], $target3);
+  echo "<script>
+  alert('Package Added Successfully! Wait for admin approval.');window.location='index.php'
+  </script>";
 ?>
