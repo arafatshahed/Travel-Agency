@@ -409,7 +409,8 @@ ul li ul:hover {
 }
 .row .column img {
   width: 100%;
-  min-height: 300px;
+  max-height: 200px;
+  min-height: 200px;
   background-size: cover;
   background-position: center;
   transition: 0.6s linear;
