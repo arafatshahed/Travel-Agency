@@ -1,67 +1,55 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* Float four columns side by side */
-.mcardc {
-
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-}
-
-/* Remove extra left and right margins, due to padding */
-.mcardr {margin: 0 -5px;}
-
-/* Clear floats after the columns */
-.mcardr:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Responsive columns */
-@media screen and (max-width: 600px) {
-  .mcardc {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* Style the counter cards */
-.cards {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-</style>
-</head>
-<body>
-
-<h2>Responsive Column Cards</h2>
-<p>Resize the browser window to see the effect.</p>
-
-<div class="mcardr">
-  <div class="mcardc">
-    <div class="cards">
-      <h3>Card 1</h3>
-      <p>Some text</p>
-      <p>Some text</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="test.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mycard">
+        <div class="headinfo">
+          <h2>Lorem.</h2>
+          <h3>lorem3</h3>
+        </div>
+        <div class="mimg">
+          <img src="./images/sajek.jpg" alt="" />
+        </div>
+        <div class="imgbtn">
+          <img
+            id="img1"
+            onclick="imgchange()"
+            src="./images/sajek.jpg"
+            alt=""
+          />
+          <img
+            id="img2"
+            onclick="imgchange()"
+            src="./images/sajek2.jpg"
+            alt=""
+          />
+          <img
+            id="img2"
+            onclick="imgchange()"
+            src="./images/sajek.jpg"
+            alt=""
+          />
+        </div>
+        <a class="mybtn" href="Book">Book</a>
+        <div class="info">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque,
+            iure consequuntur fugit repellendus error ducimus accusantium sunt
+            consequatur delectus. Itaque.
+          </p>
+          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Lorem, ipsum dolor.</p>
+        </div>
+      </div>
     </div>
-  </div>
-
-
-
-</body>
+    <script>
+      function imgchange() {}
+    </script>
+  </body>
 </html>

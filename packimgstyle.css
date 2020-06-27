@@ -1,75 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap");
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 body {
+  background: #feac5e;
+  background: -webkit-linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
+  background: linear-gradient(to right, #4bc0c8, #c779d0, #feac5e);
+  transition: 0.6s linear;
+}
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-}
-
-.container3 {
-  position: relative;
-  width: 1000px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-.container3 .card {
-  position: relative;
-  display: flex;
+  align-content: center;
   flex-direction: column;
-  background: #fff;
+  padding: 1%;
 }
-.container3 .card:nth-child(even) {
-  flex-direction: column-reverse;
+.mycard {
+  width: 480px;
+  background-color: rgb(227, 220, 235);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px 40px 40px 40px;
+  text-transform: uppercase;
 }
-.container3 .card .imgbx{
-  position: relative;
-  width: 250px;
-  height: 250px;
-  background: #000;
+.info {
+  font-size: 1em;
 }
-.container3 .card .imgbx img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.container3 .card .content{
-  position: relative;
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-}
-.container3 .card .content div{
-  padding: 20px;
-  text-align: center;
-}
-@media (max-width: 1000px) {
-  .container3 {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    margin: 50px;
-}
-  .container3 .card{
-    flex-direction: row;
-    margin: 10px 0;
-  }
-  .container3 .card:nth-child(even) {
-  flex-direction: row-reverse;
-  }
-  .container3 .card .imgbx,
-  .container3 .card .content: {
-    width: 50%
-  }
 
+.container .mimg img {
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+  transition: 0.6s linear;
 }
-@media (max-width: 600px) {
-  .container3 .card{
-    flex-direction: column;
-    margin: 10px 0;
+.imgbtn,
+.mybtn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.mybtn {
+  margin-top: 10px;
+  transition: 0.4s linear;
+}
+.mybtnb {
+  display: flex;
+  margin-top: 10px;
+  color: #7ed6df;
+  text-decoration: none;
+  border: 2px solid;
+  padding: 8px 24px;
+  border-radius: 20px;
+  transition: 0.4s linear;
+  align-items: center;
+  justify-content: center;
+}
+.mybtn:hover {
+  transform: scale(1.06);
+}
+.imgbtn img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  margin: 0.3rem;
+  border: 2px solid #8888;
+  transition: 0.6s linear;
+}
+@media screen and (max-width: 500px) {
+  .mycard {
+    width: 90%;
+  }
 }

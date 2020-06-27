@@ -402,12 +402,15 @@ ul li ul:hover {
   grid-template-columns: 1fr;
   justify-content: center;
   justify-items: center;
+  border-radius: 20px;
 }
 .column img {
   max-height: 200px;
   min-height: 200px;
   justify-content: center;
+  object-fit: cover;
   max-width: 300px;
+  width: 100%;
 }
 .btn {
   display: flex;
@@ -496,7 +499,9 @@ ul li ul:hover {
   .row {
     grid-template-columns: 1fr 1fr;
   }
-
+  .btnb {
+    visibility: visible;
+  }
   .wrap {
     top: 20%;
   }

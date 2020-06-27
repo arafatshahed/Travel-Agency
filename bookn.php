@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="prdctstyle.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="test.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booikng</title>
 </head>
 
 <body>
-
-
     <?php
   session_start();
   $host = "localhost";
@@ -73,60 +71,67 @@
 
 
   ?>
-
-
     <style>
-    .product-pic {
+    .conatainer {
         background-image: url(<?php echo $img1; ?>);
     }
     </style>
-
-
-    <div class="product-card">
-        <h1><?php echo $P_Destination; ?></h1>
-        <p><?php echo $P_start . " to " . $P_Destination; ?></p>
-        <div class="product-pic"></div>
-        <div class="product-colors">
-            <span class="blue active" data-color="#7ed6df" data-pic="url(<?php echo $img1; ?>)"></span>
-            <span class="green" data-color="#badc58" data-pic="url(<?php echo $img2; ?>)"></span>
-            <span class="yellow" data-color="#f9ca24" data-pic="url(<?php echo $img3; ?>)"></span>
-        </div>
-        <div class="product-info">
-
+    <div class="container">
+        <div class="mycard">
+            <div class="headinfo">
+                <h1><?php echo $P_Destination; ?></h1>
+                <p><?php echo $P_start . " to " . $P_Destination; ?></p>
+            </div>
+            <div class="mimg">
+                <img id="mainimg" src="<?php echo $img1 ?>" alt="" />
+            </div>
+            <div class="imgbtn">
+                <img id="img1" onclick="imgchange(this.id)" src="<?php echo $img1 ?>" alt="" />
+                <img id="img2" onclick="imgchange(this.id)" src="<?php echo $img2 ?>" alt="" />
+                <img id="img3" onclick="imgchange(this.id)" src="<?php echo $img3 ?>" alt="" />
+            </div>
             <?php
       if (isset($_SESSION['userID'])) {
       ?>
 
-            <a class="product-button" href="reservation1.php?name=<?= $paID; ?>">Book This Package</a>
+            <a class="mybtnb" href="reservation1.php?name=<?= $paID; ?>">Book This Package</a>
             <?php
       } else {
-        echo '<a class="product-button" href="signin1.php">Sign in to Book!</a>';
+        echo '<a class="mybtnb" href="signin1.php">Sign in to Book!</a>';
       }
       ?>
-
-
-        </div>
-        <br>
-        <div class="dis">
-            The starting location is <b><?php echo $P_start; ?></b>.<br>
-            The Destination location is <b><?php echo $P_Destination; ?></b>.<br>
-            Price per adult is <b><?php echo $P_Price_Adult; ?></b> taka.<br>
-            Price per child is <b><?php echo $P_Price_Child; ?></b> taka.<br>
-            The transport of choice is <b><?php echo $Tr_Type; ?></b>.<br>
-            The Company is <b><?php echo $coname; ?></b>.<br>
-
+            <div class="info">
+                <br>
+                <p>The starting location is <b><?php echo $P_start; ?></b>.</p>
+                <p>The Destination location is <b><?php echo $P_Destination; ?></b>.</p>
+                <p>Price per adult is <b><?php echo $P_Price_Adult; ?></b> taka.</p>
+                <p>Price per child is <b><?php echo $P_Price_Child; ?></b> taka.</p>
+                <p>The transport of choice is <b><?php echo $Tr_Type; ?></b>.</p>
+                <p>The Company is <b><?php echo $coname; ?></b>.</p>
+            </div>
         </div>
     </div>
-
     <script>
-    $(".product-colors span").click(function() {
-        $(".product-colors span").removeClass("active");
-        $(this).addClass("active");
-        $("body").css("background", $(this).attr("data-color"));
-        $(".product-price").css("color", $(this).attr("data-color"));
-        $(".product-button").css("color", $(this).attr("data-color"));
-        $(".product-pic").css("background-image", $(this).attr("data-pic"));
-    });
+    function imgchange(timg) {
+        if (timg == "img1") {
+            var img1 = "<?php echo $img1 ?>";
+            document.getElementById("mainimg").src = img1;
+        }
+        if (timg == "img2") {
+            var img2 = "<?php echo $img2 ?>";
+            document.getElementById("mainimg").src = img2;
+        }
+        if (timg == "img3") {
+            var img3 = "<?php echo $img3 ?>";
+            document.getElementById("mainimg").src = img3;
+        }
+
+        console.log(img1);
+        console.log(img2);
+        console.log(img3);
+        /*var thisimg = "$"+"./images"
+        document.getElementById("mainimg").src = ;*/
+    }
     </script>
 </body>
 
